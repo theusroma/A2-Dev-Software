@@ -1,40 +1,34 @@
-public class Agenda {
-    private Contato[] contatos;
-    private int contador;
+import java.util.ArrayList;
 
-    public Agenda(int tamanho){
-        contatos = new Contato[tamanho];
-        contador = 0;
+public class Agenda {
+    private ArrayList<Contato> contatos;
+
+    public Agenda(){
+        contatos = new ArrayList<>();
     }
 
-    public void adicionarContato(String nome, int telefone){
-        if(contador < contatos.length){
-        contatos[contador] = new Contato(nome, telefone);
-        contador++;
+    public void adicionarContato(String nome, String telefone){
+        contatos.add(new Contato(nome, telefone));
+            System.out.println("Contato adicionado com sucesso!");
 
-        System.out.println("Contato adicionado com sucesso!");
-
-        } else{
-            System.out.println("Agenda cheia!");
-        }
     }
 
     public void exibirContato(){
-        if (contador >= 1){
-            for(int i = 0; i < contador; i++){
-                contatos[i].exibirDados();
-            }
-        } else {
+        if (contatos.isEmpty()){
             System.out.println("A agenda está vazia!");
+        } else {
+            for (Contato c : contatos){
+                c.exibirDados();
+            }
         }
     }
 
     public void buscarContato(String nome) {
-        for (int i = 0; i < contador; i++) { // Percorre a agenda
-            if (contatos[i].getNome().equalsIgnoreCase(nome)) { // Se o nome for igual   .equal é usado para comparar o NOME.
+        for (Contato c : contatos) { // Percorre a agenda
+            if (c.getNome().equalsIgnoreCase(nome)) { // Se o nome for igual   .equal é usado para comparar o NOME.
 
                 System.out.println("Contato encontrado:");
-                contatos[i].exibirDados();
+                c.exibirDados();
 
                 return;
             }
@@ -44,10 +38,9 @@ public class Agenda {
 
     public void removerContato(String nome) {
 
-        for (int i = 0; i < contador; i++) {
-            if (contatos[i].getNome().equalsIgnoreCase(nome)) {
-                contatos[i] = null;
-                contador--;
+        for (Contato c : contatos) {
+            if (c.getNome().equalsIgnoreCase(nome)) {
+                contatos.remove(c);
                 System.out.println("Contato " + nome + " removido com sucesso.");
                 return;
             }
