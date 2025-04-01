@@ -9,10 +9,6 @@ public class Pizza {
         this.ingrediente = ingrediente;
     }
 
-    public Pizza(String nome){
-        this.nome = nome;
-    }
-
 
     public String getNome(){
         return this.nome;
