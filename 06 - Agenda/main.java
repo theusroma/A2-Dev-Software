@@ -14,8 +14,7 @@ public class Main {
 
 
         Scanner leitor = new Scanner(System.in);
-        Agenda agenda = new Agenda(10);
-
+        Agenda agenda = new Agenda();
         int op = 0;
 
         while (op != 5){
@@ -34,8 +33,7 @@ public class Main {
                     String nome = leitor.nextLine();
 
                     System.out.println("Digite o telefone do contato: ");
-                    int telefone = leitor.nextInt();
-                    leitor.nextLine();
+                    String telefone = leitor.nextLine();
 
                     agenda.adicionarContato(nome, telefone);
                     break;
