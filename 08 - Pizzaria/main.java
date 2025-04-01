@@ -8,67 +8,76 @@ public class Main {
 
 
 
-    int op = 0;
+        int op = 0;
 
-    while (op != 7){
+        while (op != 7){
 
-        System.out.println("Digite a opção desejada:");
-        System.out.println("[1] Cardápio");
-        System.out.println("[2] Adicionar pedido");
-        System.out.println("[3] Cancelar pedido");
-        System.out.println("[4] Pedidos registrados");
-        System.out.println("[5] Cadastrar novo sabor");
-        System.out.println("[6] Carrinho");
-        System.out.println("[7] Sair");
-        op = leitor.nextInt();
-        leitor.nextLine();
+            System.out.println("Digite a opção desejada:");
+            System.out.println("[1] Cardápio");
+            System.out.println("[2] Adicionar pedido");
+            System.out.println("[3] Cancelar pedido");
+            System.out.println("[4] Pedidos registrados");
+            System.out.println("[5] Cadastrar novo sabor");
+            System.out.println("[6] Carrinho");
+            System.out.println("[7] Sair");
+            op = leitor.nextInt();
+            leitor.nextLine();
 
-        switch (op){
-            case 1:
-                pedido.cardapio();
-                break;
+            switch (op){
+                case 1:
+                    pedido.cardapio();
+                    break;
 
-            case 2:
-                System.out.println("Qual sabor de pizza você deseja?");
-                String sabor = leitor.nextLine();
-                pedido.adicionarPedido(sabor);
-                break;
+                case 2:
+                    System.out.println("Qual sabor de pizza você deseja?");
+                    String sabor = leitor.nextLine();
 
-            case 3:
-                System.out.println("Qual sabor de pizza você deseja remover?");
-                pedido.pedidosRegistrados();
-                String remove = leitor.nextLine();
-                pedido.cancelarPedido(remove);
-                break;
 
-            case 4:
-                pedido.pedidosRegistrados();
-                break;
+                    System.out.println("Qual tamanho de pizza você deseja?");
+                    String tamanho = leitor.nextLine();
 
-            case 5:
-                System.out.println("Digite o sabor a ser cadastrado: ");
-                String saborCadastrado = leitor.nextLine();
+                    System.out.println("Qual o endereço de entrega?");
+                    String endereco = leitor.nextLine();
 
-                System.out.println("Digite qual será o preço: ");
-                float precoCadastrado = leitor.nextFloat();
-                leitor.nextLine();
+                    pedido.adicionarPedido(sabor, tamanho, endereco);
 
-                System.out.println("Digite qual será o ingrediente: ");
-                String ingredienteCadastrado = leitor.nextLine();
+                    break;
 
-                pedido.cadastrarSabor(saborCadastrado, precoCadastrado, ingredienteCadastrado);
+                case 3:
+                    System.out.println("Qual sabor de pizza você deseja remover?");
+                    pedido.carrinho();
+                    String remove = leitor.nextLine();
+                    pedido.cancelarPedido(remove);
+                    break;
 
-                break;
+                case 4:
+                    pedido.pedidosRegistrados();
+                    break;
 
-            case 6:
-                pedido.carrinho();
-                break;
+                case 5:
+                    System.out.println("Digite o sabor a ser cadastrado: ");
+                    String saborCadastrado = leitor.nextLine();
 
-            case 7:
-                System.out.println("Saindo...");
-                break;
+                    System.out.println("Digite qual será o preço: ");
+                    float precoCadastrado = leitor.nextFloat();
+                    leitor.nextLine();
+
+                    System.out.println("Digite qual será o ingrediente: ");
+                    String ingredienteCadastrado = leitor.nextLine();
+
+                    pedido.cadastrarSabor(saborCadastrado, precoCadastrado, ingredienteCadastrado);
+
+                    break;
+
+                case 6:
+                    pedido.carrinho();
+                    break;
+
+                case 7:
+                    System.out.println("Saindo...");
+                    break;
+            }
         }
-    }
 
     }
 }
@@ -95,3 +104,25 @@ public class Main {
 
 //Obs. os objetos “pizzas” da classe pizza podem ser criados e adicionados manualmente em uma lista pelo código
 //na main. Mas caso queira, é possível também fazer um menu para adicionar novos sabores além dos existentes.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
