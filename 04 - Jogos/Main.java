@@ -65,26 +65,46 @@ public class Main {
                 case 3:
                     System.out.println("Selecione o perfil que deseja aumentar o nível: ");
 
-                    for (int i = 0; i < contador; i++) {
-                        System.out.println("[" + i + "]" + jogos[i].getNome());
+
+
+                    if (contador >0){
+                        for (int i = 0; i < contador; i++) {
+                            System.out.println("[" + i + "]" + jogos[i].getNome());
+                        }
+
+                        int sele = leitor.nextInt();
+                        leitor.nextLine();
+                        jogos[sele].aumentarNivel();
+                    } else {
+                        System.out.println("Não há perfis criados.\n");
                     }
 
-                    int sele = leitor.nextInt();
-                    leitor.nextLine();
-                    jogos[sele].aumentarNivel();
+
                     break;
 
                 case 4:
                     System.out.println("Selecione o perfil que deseja aumentar a pontuação: ");
 
-                    for (int i = 0; i < contador; i++){
-                        System.out.println("[" + i + "]" + jogos[i].getNome());
-                    }
 
-                    int selecao = leitor.nextInt();
-                    leitor.nextLine();
-                    jogos[selecao].aumentarPontuacao();
+
+
+
+
+
+                    if (contador >0){
+                        for (int i = 0; i < contador; i++){
+                            System.out.println("[" + i + "]" + jogos[i].getNome());
+                        }
+
+                        int selecao = leitor.nextInt();
+                        leitor.nextLine();
+                        jogos[selecao].aumentarPontuacao();
+                    } else {
+                        System.out.println("Não há perfis criados.\n");
+                    }
                     break;
+
+
 
 
 
